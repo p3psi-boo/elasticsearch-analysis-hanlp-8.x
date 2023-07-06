@@ -54,7 +54,6 @@ public class PerceptronPOSInstance {
             });
         } else {
             logger.warn("can not find perceptron pos model from [{}]", HanlpPath.PerceptronPOSModelPath);
-            System.out.println(path);
             linearModel = null;
         }
     }

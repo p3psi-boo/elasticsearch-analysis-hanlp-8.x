@@ -1,11 +1,15 @@
 package com.hankcs.dic;
 
 import com.hankcs.cfg.Configuration;
+import com.hankcs.cfg.HanlpPath;
 import com.hankcs.dic.cache.DictionaryFileCache;
 import com.hankcs.dic.config.RemoteDictConfig;
 import org.elasticsearch.plugin.analysis.hanlp.AnalysisHanLPPlugin;
 
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
@@ -46,10 +50,13 @@ public class Dictionary {
     }
 
     private void setUp() {
-        Path configDir = configuration.getEnvironment().configFile().resolve(AnalysisHanLPPlugin.PLUGIN_NAME);
+//        Path configDir = configuration.getEnvironment().configFile().resolve(AnalysisHanLPPlugin.PLUGIN_NAME);
         DictionaryFileCache.configCachePath(configuration);
         DictionaryFileCache.loadCache();
-        RemoteDictConfig.initial(configDir.resolve(REMOTE_CONFIG_FILE_NAME).toString());
+        Path path = Paths.get(AccessController.doPrivileged((PrivilegedAction<String>) () -> HanlpPath.remoteConfigFileName)
+        ).toAbsolutePath();
+
+        RemoteDictConfig.initial(path.toString());
     }
 
     public static synchronized void initial(Configuration configuration) {
@@ -63,7 +70,6 @@ public class Dictionary {
                         for (String location : RemoteDictConfig.getSingleton().getRemoteExtDictionaries()) {
                             pool.scheduleAtFixedRate(new RemoteMonitor(location, "custom"), 10, 60, TimeUnit.SECONDS);
                         }
-
                         for (String location : RemoteDictConfig.getSingleton().getRemoteExtStopWordDictionaries()) {
                             pool.scheduleAtFixedRate(new RemoteMonitor(location, "stop"), 10, 60, TimeUnit.SECONDS);
                         }

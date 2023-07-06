@@ -53,7 +53,6 @@ public class CRFNERecognizerInstance {
             });
         } else {
             logger.warn("can not find crf ner model from [{}]", HanlpPath.CRFNERModelPath);
-            System.out.println(path);
             recognizer = null;
         }
     }

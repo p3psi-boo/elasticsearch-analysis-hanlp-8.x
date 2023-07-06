@@ -54,7 +54,6 @@ public class PerceptronNERInstance {
             });
         } else {
             logger.warn("can not find perceptron ner model from [{}]", HanlpPath.PerceptronNERModelPath);
-            System.out.println(path);
             linearModel = null;
         }
     }

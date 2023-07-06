@@ -10,5 +10,8 @@ public class HanlpPath {
     public static String PerceptronNERModelPath = "plugins/analysis-hanlp/data/model/perceptron/pku1998/ner.bin";
 
     public static String hanlpPropertiesPath = "plugins/analysis-hanlp/config/hanlp.properties";
+//远程配置文件
+    public static String remoteConfigFileName = "plugins/analysis-hanlp/config/hanlp-remote.xml";
+
 
 }

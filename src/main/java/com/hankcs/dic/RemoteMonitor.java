@@ -98,7 +98,6 @@ public class RemoteMonitor implements Runnable {
         if (eTags != null) {
             head.setHeader(HttpHeaders.IF_NONE_MATCH, eTags);
         }
-
         CloseableHttpResponse response = null;
         try {
             response = httpclient.execute(head);

@@ -53,7 +53,6 @@ public class CRFSegmenterInstance {
             });
         } else {
             logger.warn("can not find crf cws model from [{}]", HanlpPath.CRFCWSModelPath);
-            System.out.println(pat);
             segmenter = null;
         }
     }

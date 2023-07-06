@@ -67,7 +67,8 @@ public class RemoteDictConfig {
     }
 
     public List<String> getRemoteExtDictionaries() {
-        return getRemoteExtFiles(REMOTE_EXT_DICT);
+        List<String> list=getRemoteExtFiles(REMOTE_EXT_DICT);
+        return list;
     }
 
     public List<String> getRemoteExtStopWordDictionaries() {

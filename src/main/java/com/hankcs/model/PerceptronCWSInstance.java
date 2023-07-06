@@ -54,7 +54,6 @@ public class PerceptronCWSInstance {
             });
         } else {
             logger.warn("can not find perceptron cws model from [{}]", HanlpPath.PerceptronCWSModelPath);
-            System.out.println(path);
             linearModel = null;
         }
     }

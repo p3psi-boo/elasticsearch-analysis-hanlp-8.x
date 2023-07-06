@@ -53,7 +53,6 @@ public class CRFPOSTaggerInstance {
             });
         } else {
             logger.warn("can not find crf pos model from [{}]", HanlpPath.CRFPOSModelPath);
-            System.out.println( path);
             tagger = null;
         }
     }

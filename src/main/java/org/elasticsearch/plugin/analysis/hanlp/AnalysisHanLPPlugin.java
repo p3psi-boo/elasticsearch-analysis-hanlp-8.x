@@ -63,22 +63,7 @@ public class AnalysisHanLPPlugin extends Plugin implements AnalysisPlugin {
 
         extra.put("hanlp_nlp", HanLPTokenizerFactory::getHanLPNLPTokenizerFactory);
         extra.put("hanlp_crf", HanLPTokenizerFactory::getHanLPCRFTokenizerFactory);
-       /* if (FileSystemUtils.exists(Paths.get(
-                AccessController.doPrivileged((PrivilegedAction<String>) () -> HanlpPath.PerceptronCWSModelPath)
-        ).toAbsolutePath())) {
-            extra.put("hanlp_nlp", HanLPTokenizerFactory::getHanLPNLPTokenizerFactory);
-        } else {
-            logger.warn("can not find perceptron cws model from [{}], you can not use tokenizer [hanlp_nlp]",
-                    HanLP.Config.PerceptronCWSModelPath);
-        }
-        if (FileSystemUtils.exists(Paths.get(
-                AccessController.doPrivileged((PrivilegedAction<String>) () -> HanlpPath.CRFCWSModelPath)
-        ).toAbsolutePath())) {
-            extra.put("hanlp_crf", HanLPTokenizerFactory::getHanLPCRFTokenizerFactory);
-        } else {
-            logger.warn("can not find crf cws model from [{}], you can not use tokenizer [hanlp_crf]",
-                    HanLP.Config.CRFCWSModelPath);
-        }*/
+
         extra.put("hanlp_n_short", HanLPTokenizerFactory::getHanLPNShortTokenizerFactory);
         extra.put("hanlp_dijkstra", HanLPTokenizerFactory::getHanLPDijkstraTokenizerFactory);
         extra.put("hanlp_speed", HanLPTokenizerFactory::getHanLPSpeedTokenizerFactory);
@@ -97,23 +82,6 @@ public class AnalysisHanLPPlugin extends Plugin implements AnalysisPlugin {
         extra.put("hanlp_nlp", HanLPAnalyzerProvider::getHanLPNLPAnalyzerProvider);
         extra.put("hanlp_crf", HanLPAnalyzerProvider::getHanLPCRFAnalyzerProvider);
 
-       /* if (FileSystemUtils.exists(Paths.get(
-                AccessController.doPrivileged((PrivilegedAction<String>) () -> HanlpPath.PerceptronCWSModelPath)
-        ).toAbsolutePath())) {
-            extra.put("hanlp_nlp", HanLPAnalyzerProvider::getHanLPNLPAnalyzerProvider);
-        } else {
-            logger.warn("can not find perceptron cws model from [{}], you can not use analyzer [hanlp_nlp]",
-                    HanLP.Config.PerceptronCWSModelPath);
-        }
-
-        if (FileSystemUtils.exists(Paths.get(
-                AccessController.doPrivileged((PrivilegedAction<String>) () -> HanLP.Config.CRFCWSModelPath)
-        ).toAbsolutePath())) {
-            extra.put("hanlp_crf", HanLPAnalyzerProvider::getHanLPCRFAnalyzerProvider);
-        } else {
-            logger.warn("can not find crf cws model from [{}], you can not use analyzer [hanlp_crf]",
-                    HanLP.Config.CRFCWSModelPath);
-        }*/
         extra.put("hanlp_n_short", HanLPAnalyzerProvider::getHanLPNShortAnalyzerProvider);
         extra.put("hanlp_dijkstra", HanLPAnalyzerProvider::getHanLPDijkstraAnalyzerProvider);
         extra.put("hanlp_speed", HanLPAnalyzerProvider::getHanLPSpeedAnalyzerProvider);
