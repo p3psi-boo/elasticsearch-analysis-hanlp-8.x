@@ -56,7 +56,7 @@
     <dependency>
       <artifactId>elasticsearch</artifactId>
       <groupId>org.elasticsearch</groupId>
-      <version>8.7.0</version>
+      <version>${elasticsearch.version}</version>
     </dependency>
     <dependency>
       <artifactId>httpclient</artifactId>
@@ -135,13 +135,27 @@
 
   <name>analysis-hanlp</name>
 
+  <!-- 使用 huawei / aliyun 的 Maven 源，提升下载速度 -->
+  <repositories>
+    <repository>
+      <id>huaweicloud</id>
+      <name>huawei</name>
+      <url>https://mirrors.huaweicloud.com/repository/maven/</url>
+    </repository>
+    <repository>
+      <id>aliyunmaven</id>
+      <name>aliyun</name>
+      <url>https://maven.aliyun.com/repository/public</url>
+    </repository>
+  </repositories>
+
   <properties>
     <elasticsearch.assembly.descriptor>${project.basedir}/src/main/assemblies/plugin.xml
     </elasticsearch.assembly.descriptor>
     <elasticsearch.plugin.classname>org.elasticsearch.plugin.analysis.hanlp.AnalysisHanLPPlugin
     </elasticsearch.plugin.classname>
     <elasticsearch.plugin.name>hanlp plugin</elasticsearch.plugin.name>
-    <elasticsearch.version>8.7.0</elasticsearch.version>
+    <elasticsearch.version>8.12.0</elasticsearch.version>
     <java.source.version>17</java.source.version>
     <java.target.version>17</java.target.version>
     <maven.compiler.source>17</maven.compiler.source>
